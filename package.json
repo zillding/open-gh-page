@@ -1,6 +1,6 @@
 {
   "name": "open-gh-page",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Get github repos of a user with github pages branch",
   "repository": "zillding/open-gh-page",
   "bin": {
