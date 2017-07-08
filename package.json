@@ -1,0 +1,37 @@
+{
+  "name": "open-gh-page",
+  "version": "0.0.0",
+  "description": "Get github repos of a user with github pages branch",
+  "repository": "zillding/open-gh-page",
+  "bin": {
+    "open-gh-page": "./cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "deploy": "np"
+  },
+  "keywords": [
+    "open",
+    "github",
+    "pages"
+  ],
+  "author": "Zill Ding",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "filled-array": "^1.1.0",
+    "fuzzy": "^0.1.3",
+    "github": "^9.2.0",
+    "inquirer": "^3.1.1",
+    "inquirer-autocomplete-prompt": "^0.11.0",
+    "meow": "^3.7.0",
+    "opn": "^5.1.0",
+    "ora": "^1.3.0",
+    "update-notifier": "^2.2.0"
+  },
+  "devDependencies": {
+    "np": "^2.16.0"
+  }
+}
