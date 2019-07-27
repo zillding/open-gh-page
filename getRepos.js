@@ -1,31 +1,30 @@
-const filledArray = require("filled-array");
-const GitHubApi = require("github");
+const octokit = require("@octokit/rest")();
 
-const github = new GitHubApi({ Promise });
-
-function getNumberOfRepos(username) {
-  return github.users
-    .getForUser({ username })
-    .then(res => res.data.public_repos);
+async function getNumberOfRepos(username) {
+  const response = await octokit.users.getByUsername({ username });
+  return response.data.public_repos;
 }
 
-function getReposForUser(username, number) {
-  const per_page = 30;
+async function getReposForUser(username, number) {
+  const per_page = 100;
   const pages = Math.ceil(number / per_page);
 
-  const promises = filledArray(1, 3).map((_, index) =>
-    github.repos
-      .getForUser({ username, page: index + 1, per_page })
-      .then(res => res.data)
+  const values = await Promise.all(
+    [...Array(pages).keys()].map(async index => {
+      const response = await octokit.repos.listForUser({
+        username,
+        page: index + 1,
+        per_page
+      });
+      return response.data;
+    })
   );
 
-  return Promise.all(promises).then(values =>
-    values.reduce((a, current) => a.concat(current), [])
-  );
+  return values.reduce((a, current) => a.concat(current), []);
 }
 
-module.exports = function getRepos(username) {
-  return getNumberOfRepos(username).then(number =>
-    getReposForUser(username, number)
-  );
+module.exports = async function(username) {
+  const numberOfRepos = await getNumberOfRepos(username);
+  const repos = await getReposForUser(username, numberOfRepos);
+  return repos;
 };
