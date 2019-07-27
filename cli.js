@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const fuzzy = require("fuzzy");
 const inquirer = require("inquirer");
 const meow = require("meow");
-const opn = require("opn");
+const open = require("open");
 const ora = require("ora");
 const updateNotifier = require("update-notifier");
 
@@ -63,7 +63,7 @@ function handleUsername(username) {
           Promise.resolve().then(() => filterRepos(input, result))
       };
       inquirer.prompt([question]).then(answer => {
-        opn(answer.url, { wait: false });
+        open(answer.url);
       });
     })
     .catch(err => {
