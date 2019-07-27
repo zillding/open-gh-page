@@ -59,8 +59,7 @@ function handleUsername(username) {
         type: "autocomplete",
         name: "url",
         message: "Select a github page:",
-        source: (_, input) =>
-          Promise.resolve().then(() => filterRepos(input, result))
+        source: (_, input) => Promise.resolve(filterRepos(input, result))
       };
       inquirer.prompt([question]).then(answer => {
         open(answer.url);
