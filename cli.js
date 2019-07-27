@@ -7,6 +7,7 @@ const meow = require("meow");
 const open = require("open");
 const ora = require("ora");
 const updateNotifier = require("update-notifier");
+const escExit = require("esc-exit");
 
 const pkg = require("./package.json");
 const getRepos = require("./getRepos");
@@ -84,10 +85,7 @@ function handleInit() {
 }
 
 function init(username) {
-  process.stdin.on("keypress", (_, key) => {
-    if (key && key.name === "escape") process.exit();
-  });
-
+  escExit();
   if (username) return handleUsername(username);
   return handleInit();
 }
