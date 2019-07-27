@@ -7,7 +7,7 @@
     "open-gh-page": "./cli.js"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=10"
   },
   "scripts": {
     "deploy": "np"
