@@ -4,9 +4,10 @@ const chalk = require("chalk");
 const fuzzy = require("fuzzy");
 const inquirer = require("inquirer");
 const meow = require("meow");
-const opn = require("opn");
+const open = require("open");
 const ora = require("ora");
 const updateNotifier = require("update-notifier");
+const escExit = require("esc-exit");
 
 const pkg = require("./package.json");
 const getRepos = require("./getRepos");
@@ -59,11 +60,10 @@ function handleUsername(username) {
         type: "autocomplete",
         name: "url",
         message: "Select a github page:",
-        source: (_, input) =>
-          Promise.resolve().then(() => filterRepos(input, result))
+        source: (_, input) => Promise.resolve(filterRepos(input, result))
       };
       inquirer.prompt([question]).then(answer => {
-        opn(answer.url, { wait: false });
+        open(answer.url);
       });
     })
     .catch(err => {
@@ -85,10 +85,7 @@ function handleInit() {
 }
 
 function init(username) {
-  process.stdin.on("keypress", (_, key) => {
-    if (key && key.name === "escape") process.exit();
-  });
-
+  escExit();
   if (username) return handleUsername(username);
   return handleInit();
 }
