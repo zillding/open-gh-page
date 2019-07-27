@@ -11,8 +11,8 @@ A node CLI utility to open a github page of a given user
 
 ## Usage
 
-`open-gh-page`
+`oghp`
 
 or
 
-`open-gh-page <username>`
+`oghp <username>`
