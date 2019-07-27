@@ -10,7 +10,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "deploy": "np"
+    "start": "node ./cli"
   },
   "keywords": [
     "open",
@@ -30,8 +30,5 @@
     "open": "^6.4.0",
     "ora": "^3.4.0",
     "update-notifier": "^3.0.1"
-  },
-  "devDependencies": {
-    "np": "^5.0.3"
   }
 }
