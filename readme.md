@@ -6,6 +6,8 @@
 
 A node CLI utility to open a github page of a given user
 
+<img width="600" src="https://cdn.jsdelivr.net/gh/zillding/open-gh-page/demo.svg">
+
 ## Install
 
 `npm install -g open-gh-page`
