@@ -20,7 +20,7 @@
   "author": "Zill Ding",
   "license": "MIT",
   "dependencies": {
-    "@octokit/rest": "^16.28.7",
+    "@octokit/rest": "^17.0.0",
     "chalk": "^3.0.0",
     "esc-exit": "^2.0.2",
     "fuzzy": "^0.1.3",
