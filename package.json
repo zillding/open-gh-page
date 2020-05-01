@@ -10,7 +10,9 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "node ./cli"
+    "start": "node ./cli",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "open",
@@ -29,6 +31,8 @@
     "meow": "^6.1.0",
     "open": "^7.0.3",
     "ora": "^4.0.4",
-    "update-notifier": "^4.1.0"
-  }
+    "update-notifier": "^4.1.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
