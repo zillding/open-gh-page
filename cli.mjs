@@ -17,7 +17,9 @@ const cli = meow(`
 
   Examples
     $ open-gh-page zillding
-`);
+`, {
+  importMeta: import.meta
+});
 
 function getHomepage(repo) {
   if (repo.name === `${repo.owner.login}.github.io`) {

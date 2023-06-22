@@ -1,6 +1,6 @@
-import Octokit from "@octokit/rest";
+import { Octokit } from "@octokit/rest";
 
-const octokit = Octokit();
+const octokit = new Octokit();
 
 async function getNumberOfRepos(username) {
   const response = await octokit.users.getByUsername({ username });
