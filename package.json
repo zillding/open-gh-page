@@ -4,13 +4,13 @@
   "description": "Get github repos of a user with github pages branch",
   "repository": "zillding/open-gh-page",
   "bin": {
-    "oghp": "./cli.js"
+    "oghp": "./cli.mjs"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
-    "start": "node ./cli"
+    "start": "node ./cli.mjs"
   },
   "keywords": [
     "open",

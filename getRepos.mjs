@@ -1,4 +1,6 @@
-const octokit = require("@octokit/rest")();
+import Octokit from "@octokit/rest";
+
+const octokit = Octokit();
 
 async function getNumberOfRepos(username) {
   const response = await octokit.users.getByUsername({ username });
@@ -23,7 +25,7 @@ async function getReposForUser(username, number) {
   return values.reduce((a, current) => a.concat(current), []);
 }
 
-module.exports = async function(username) {
+export default async function(username) {
   const numberOfRepos = await getNumberOfRepos(username);
   const repos = await getReposForUser(username, numberOfRepos);
   return repos;

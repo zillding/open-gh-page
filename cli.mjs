@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-const chalk = require("chalk");
-const fuzzy = require("fuzzy");
-const inquirer = require("inquirer");
-const meow = require("meow");
-const open = require("open");
-const ora = require("ora");
-const escExit = require("esc-exit");
+import chalk from "chalk";
+import fuzzy from "fuzzy";
+import inquirer from "inquirer";
+import inquirerAutocomplete from "inquirer-autocomplete-prompt";
+import meow from "meow";
+import open from "open";
+import ora from "ora";
+import escExit from "esc-exit";
 
-const getRepos = require("./getRepos");
+import getRepos from "./getRepos.mjs";
 
 const cli = meow(`
   Usage
@@ -50,7 +51,7 @@ function handleUsername(username) {
       }
       inquirer.registerPrompt(
         "autocomplete",
-        require("inquirer-autocomplete-prompt")
+        inquirerAutocomplete
       );
       const question = {
         type: "autocomplete",
