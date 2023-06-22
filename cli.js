@@ -6,13 +6,9 @@ const inquirer = require("inquirer");
 const meow = require("meow");
 const open = require("open");
 const ora = require("ora");
-const updateNotifier = require("update-notifier");
 const escExit = require("esc-exit");
 
-const pkg = require("./package.json");
 const getRepos = require("./getRepos");
-
-updateNotifier({ pkg }).notify();
 
 const cli = meow(`
   Usage
