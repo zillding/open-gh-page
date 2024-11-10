@@ -27,7 +27,7 @@
     "inquirer": "^9.3.6",
     "inquirer-autocomplete-prompt": "^3.0.1",
     "meow": "^12.1.1",
-    "open": "^9.1.0",
+    "open": "^10.0.0",
     "ora": "^6.3.1"
   }
 }
